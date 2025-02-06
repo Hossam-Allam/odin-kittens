@@ -27,7 +27,7 @@ class KittensController < ApplicationController
 
   def update
     @kitty = Kitten.find(params[:id])
-      if @kitty.update_attributes(kitten_params)
+      if @kitty.update(kitten_params)
         flash[:success] = "Kitten was successfully updated"
         redirect_to @kitty
       else
