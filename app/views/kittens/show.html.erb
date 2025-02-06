@@ -1,5 +1,11 @@
 <h1>Kitty showcase</h1>
 
+<%= link_to "Delete Kitten", @kitty, 
+            data: { turbo_method: :delete, 
+                    turbo_confirm: "Are you sure?" } %>
+                    
+<%= link_to "Back to all kittens", kittens_path %>
+
 <h2>Name: <%= @kitty.name %></h2>
 <h3>age: <%= @kitty.age %></h3>
 <h3>Cuteness score: <%= @kitty.cuteness %></h3>
