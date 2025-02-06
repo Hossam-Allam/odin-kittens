@@ -1,5 +1,5 @@
 <h1>All kittens</h1>
-
+<%= link_to "Add a kitty", new_kitten_path%>
 <% @kittens.each do |kitten| %>
     <h2><%= link_to "Name: #{kitten.name}", kitten %></h2>
 <% end %>
