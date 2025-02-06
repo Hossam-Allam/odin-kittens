@@ -6,4 +6,30 @@ class KittensController < ApplicationController
   def show
     @kitty = Kitten.find(params[:id])
   end
+
+  def new
+    @kitty = Kitten.new
+  end
+
+  def create
+    @kitty = Kitten.new(kitten_params)
+    if @kitty.save
+      redirect_to @kitty
+    else
+      flash[:error] = "Something went wrong"
+      render :new
+    end
+  end
+
+  private
+
+  def kitten_params
+    params.require(:kitten).permit(
+      :id,
+      :name,
+      :age,
+      :cuteness,
+      :softness
+    )
+  end
 end
